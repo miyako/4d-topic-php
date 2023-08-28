@@ -25,7 +25,7 @@ Typical depenceies:
 
 - [ ] aspell/0.60.8/lib/libpspell.15.dylib
 - [ ] openldap/2.6.6/lib/liblber.2.dylib
-- [ ] libpq/15.4/lib/libpq.5.15.dylib
+- [x] libpq/15.4/lib/libpq.5.15.dylib
 - [ ] gettext/0.21.1/lib/libintl.8.dylib
 - [ ] tidy-html5/5.8.0/lib/libtidy.5.8.0.dylib
 - [ ] aspell/0.60.8/lib/libaspell.15.dylib
@@ -63,7 +63,7 @@ Typical depenceies:
 - [x] xz-5.4.4
 - [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
 - [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
-- [ ] zstd/1.5.5/lib/libzstd.1.5.5.dylib
+- [x] zstd-1.5.5
 - [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
 - [ ] freetype/2.13.1/lib/libfreetype.6.dylib
 - [ ] jpeg-turbo/3.0.0/lib/libjpeg.8.3.2.dylib
