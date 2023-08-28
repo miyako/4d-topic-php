@@ -25,8 +25,6 @@ make install
 ```
 
 This will install static php-cgi with only the following system dependencies:
-
-* `otool -L php-cgi`
  
 ```
 /usr/lib/libresolv.9.dylib
