@@ -16,6 +16,7 @@ Restart Terminal.
 ```
 cd {php-src-master}
 autoreconf
+export LDFLAGS="-L{path-to-static-libs}"
 ./configure
 make
 ```
