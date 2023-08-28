@@ -16,6 +16,7 @@ Restart Terminal.
 ```
 cd {php-src-master}
 autoreconf
+export LDFLAGS="-L{path-to-static-libs}"
 ./configure
 make
 ```
@@ -59,7 +60,7 @@ Typical depenceies:
 - [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
 - [ ] brotli/1.0.9/lib/libbrotlicommon.1.0.9.dylib
 - [ ] libpng/1.6.40/lib/libpng16.16.dylib
-- [ ] xz/5.4.4/lib/liblzma.5.dylib
+- [x] xz-5.4.4
 - [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
 - [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
 - [ ] zstd/1.5.5/lib/libzstd.1.5.5.dylib
