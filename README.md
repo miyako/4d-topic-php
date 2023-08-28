@@ -69,6 +69,21 @@ export LDFLAGS="-L{path-to-static-library-dir}"
 export LIBS="-lz -lsqlite3"
 ```
 
+Throws error:
+
+```
+sqlite3.c:446:6: error: call to undeclared function 'sqlite3_load_extension'
+```
+
+c.f. https://bugs.python.org/issue44997
+
+Quick and dirty workaround:
+
+```c
+#define SQLITE_OMIT_LOAD_EXTENSION 1
+```
+
+
 ---
 
 Typical depenceies:
