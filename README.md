@@ -62,7 +62,12 @@ brew fetch --bottle-tag=arm64_big_sur zlib
 brew fetch --bottle-tag=x86_64_big_sur zlib
 ```
 
+Direct path to static library directory:
 
+```
+export LDFLAGS="-L{path-to-static-library-dir}"
+export LIBS="-lz -lsqlite3"
+```
 
 ---
 
