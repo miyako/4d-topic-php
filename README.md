@@ -53,9 +53,6 @@ Download libraries, then `lipo -create`:
 ```
 brew fetch --bottle-tag=arm64_big_sur sqlite
 brew fetch --bottle-tag=x86_64_big_sur sqlite
-```
-
-```
 brew fetch --bottle-tag=arm64_big_sur zlib
 brew fetch --bottle-tag=x86_64_big_sur zlib
 ```
@@ -67,15 +64,11 @@ export LDFLAGS="-L{path-to-static-library-dir}"
 export LIBS="-lz -lsqlite3"
 ```
 
-Throws error:
-
-```
-sqlite3.c:446:6: error: call to undeclared function 'sqlite3_load_extension'
-```
+**Error**: `sqlite3.c:446:6: error: call to undeclared function 'sqlite3_load_extension'`
 
 c.f. https://bugs.python.org/issue44997
 
-We coud edit */ext/sqlite3/sqlite3.stub.php*
+We coud edit */ext/sqlite3/sqlite3.stub.php* like so:
 
 ```c
 #ifndef SQLITE_OMIT_LOAD_EXTENSION
@@ -84,8 +77,9 @@ We coud edit */ext/sqlite3/sqlite3.stub.php*
 #define SQLITE_OMIT_LOAD_EXTENSION 1
 #endif
 ```
+…but this won't update the source files.
 
-but this won't update the source files, so simply remove from *sqlite3_arginfo.h*
+**Solution**:  Remove from *sqlite3_arginfo.h*
 
 ```c
 #if !defined(SQLITE_OMIT_LOAD_EXTENSION)
@@ -95,13 +89,11 @@ ZEND_END_ARG_INFO()
 #endif
 ```
 
-and add to *sqlite3.c*
+…and add to *sqlite3.c*
 
 ```c
 #define SQLITE_OMIT_LOAD_EXTENSION 1
 ```
-
-
 
 ## Build static PHP with embedded `libiconv`
 
@@ -112,23 +104,13 @@ brew fetch --bottle-tag=arm64_big_sur libiconv
 brew fetch --bottle-tag=x86_64_big_sur libiconv
 ```
 
-Direct path to static library directory:
+**Error**: `configure: error: Please reinstall the iconv library.`
 
-```
-export LDFLAGS="-L{path-to-static-library-dir}"
-export LIBS="-lz -lsqlite3"
-```
-
-Throws error:
-
-```
-configure: error: Please reinstall the iconv library.
-```
-
-Add `-liconv` to `LDFLAGS`
+**Solution**: Add `-liconv` to `LDFLAGS`
 
 ```
 export LDFLAGS="-L{path-to-static-library-dir} -liconv"
+export LIBS="-lz -liconv"
 ```
 
 ---
