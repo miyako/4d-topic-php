@@ -68,3 +68,7 @@ Typical depenceies:
 - [ ] aom/3.6.1/lib/libaom.3.6.1.dylib
 - [ ] libvmaf/2.3.1/lib/libvmaf.1.dylib
 - [ ] icu4c/73.2/lib/libicudata.73.2.dylib
+
+```
+--without-iconv
+```
