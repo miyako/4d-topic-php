@@ -13,6 +13,13 @@ echo 'export PATH="/opt/homebrew/opt/bison/bin:$PATH"' >> ~/.zshrc
 
 Restart Terminal.
 
+```
+cd {php-src-master}
+autoreconf
+./configure
+make
+```
+
 Typical depenceies:
 
 - [ ] aspell/0.60.8/lib/libpspell.15.dylib
