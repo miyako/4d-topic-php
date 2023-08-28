@@ -77,12 +77,15 @@ sqlite3.c:446:6: error: call to undeclared function 'sqlite3_load_extension'
 
 c.f. https://bugs.python.org/issue44997
 
-Quick and dirty workaround:
+Find /ext/sqlite3/sqlite3.stub.php
 
 ```c
+#ifndef SQLITE_OMIT_LOAD_EXTENSION
+    /** @tentative-return-type */
+#    public function loadExtension(string $name): bool {}
 #define SQLITE_OMIT_LOAD_EXTENSION 1
+#endif
 ```
-
 
 ---
 
