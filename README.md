@@ -11,4 +11,4 @@ brew install bison
 echo 'export PATH="/opt/homebrew/opt/bison/bin:$PATH"' >> ~/.zshrc
 ```
 
-➡︎ Restart Terminal
+Restart Terminal.
