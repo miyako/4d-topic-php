@@ -72,7 +72,7 @@ Typical depenceies:
 - [ ] webp/1.3.1/lib/libwebp.7.1.7.dylib
 - [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
 - [ ] little-cms2/2.15/lib/liblcms2.2.dylib
-- [ ] jpeg-xl/0.8.2/lib/libjxl.0.8.2.dylib
+- [x] jpeg-xl/0.8.2/lib/libjxl.0.8.2.dylib
 - [ ] aom/3.6.1/lib/libaom.3.6.1.dylib
 - [x] libvmaf-2.3.1
 - [ ] icu4c/73.2/lib/libicudata.73.2.dylib
