@@ -63,7 +63,7 @@ Typical depenceies:
 - [x] xz-5.4.4
 - [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
 - [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
-- [ ] zstd/1.5.5/lib/libzstd.1.5.5.dylib
+- [x] zstd-1.5.5
 - [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
 - [ ] freetype/2.13.1/lib/libfreetype.6.dylib
 - [ ] jpeg-turbo/3.0.0/lib/libjpeg.8.3.2.dylib
