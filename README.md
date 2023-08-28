@@ -25,7 +25,7 @@ Typical depenceies:
 
 - [ ] aspell/0.60.8/lib/libpspell.15.dylib
 - [ ] openldap/2.6.6/lib/liblber.2.dylib
-- [ ] libpq/15.4/lib/libpq.5.15.dylib
+- [x] libpq/15.4/lib/libpq.5.15.dylib
 - [ ] gettext/0.21.1/lib/libintl.8.dylib
 - [ ] tidy-html5/5.8.0/lib/libtidy.5.8.0.dylib
 - [ ] aspell/0.60.8/lib/libaspell.15.dylib
