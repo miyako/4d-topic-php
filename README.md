@@ -48,6 +48,8 @@ According to the [PHP modules support](https://doc.4d.com/4Dv20/4D/20/PHP-module
 
 To create universal binary, restart Terminal using Rosetta, repeat, then `lipo -create`.
 
+## Build static PHP with embedded `libz`, `libsqlite3` and `libiconv`
+
 ---
 
 Typical depenceies:
