@@ -179,6 +179,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[OpenSSL](https://www.php.net/manual/en/book.openssl.php)|`--with-openssl`|<ul><li>- [x] </li></ul>||
 |[Regular Expressions (Perl-Compatible)](https://www.php.net/manual/en/book.pcre.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[PHP Data Objects](https://www.php.net/manual/en/book.pdo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[SQLite Functions (PDO_SQLITE)](https://www.php.net/manual/en/ref.pdo-sqlite.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
@@ -188,6 +189,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[Reflection](https://www.php.net/manual/en/book.reflection.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Sessions](https://www.php.net/manual/en/features.sessions.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[SimpleXML](https://www.php.net/manual/en/book.simplexml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[Sockets](https://www.php.net/manual/en/book.sockets.php)|`--enable-sockets`|<ul><li>- [x] </li></ul>||
 |[SQLite3](https://www.php.net/manual/en/book.sqlite3.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Standard PHP Library (SPL)](https://www.php.net/manual/en/book.spl.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Tidy](https://www.php.net/manual/en/book.tidy.php)|`--with-tidy=DIR`|*disabled*|<ul><li>- [x] </li></ul>|
@@ -195,7 +197,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[XML Parser](https://www.php.net/manual/en/book.xml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLReader](https://www.php.net/manual/en/book.xmlreader.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLWriter](https://www.php.net/manual/en/book.xmlwriter.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|*disabled*
+|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|<ul><li>- [x] </li></ul>|
 |[Zlib Compression](https://www.php.net/manual/en/book.zlib.php)|`--with-zlib`|*disabled*|<ul><li>- [x] </li></ul>|
 
 ### Configure Options
@@ -206,18 +208,31 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
  --with-zlib
  --with-gmp
  --with-zip
+ --with-openssl
  --enable-static
  --enable-bcmath
  --enable-calendar
  --enable-exif
  --enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv
+ --enable-sockets
  --enable-mbstring
 ```
 
 ### Static Libraries
 
 ```
-export LIBS="-lz -lbz2 -lzip -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy -lgmp"
+export LIBS="
+ -lz
+ -lbz2
+ -lzip
+ -lzstd
+ -liconv
+ -lonig
+ -llzma
+ -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv
+ -ltidy
+ -lgmp
+ -lcrypto -lssl"
 ```
 
 ---
