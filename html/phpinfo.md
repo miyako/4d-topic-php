@@ -1,10 +1,5 @@
-<table>
-<tbody>
-<tr><td>
-<a href="http://www.php.net/"><img border="0" src="./logo.png" alt="PHP logo" /></a><h1>PHP Version 8.3.0-dev</h1>
-</td></tr>
-</tbody>
-</table>
+# PHP Version 8.3.0-dev
+
 <table>
 <tr><td class="e">System </td><td class="v">Darwin MacBook-Pro-2021.local 22.6.0 Darwin Kernel Version 22.6.0: Wed Jul  5 22:22:05 PDT 2023; root:xnu-8796.141.3~6/RELEASE_ARM64_T6000 arm64 </td></tr>
 <tr><td class="e">Build Date </td><td class="v">Aug 29 2023 20:14:27 </td></tr>
