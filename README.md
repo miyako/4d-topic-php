@@ -79,7 +79,7 @@ We could edit */ext/sqlite3/sqlite3.stub.php* like so:
 ```
 …but this won't update the source files.
 
-**Solution**: Remove from *sqlite3_arginfo.h*
+**Solution**: Remove from *ext/sqlite3/sqlite3_arginfo.h*
 
 ```c
 #if !defined(SQLITE_OMIT_LOAD_EXTENSION)
