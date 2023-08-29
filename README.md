@@ -216,7 +216,7 @@ Typical depenceies:
 - [ ] aspell/0.60.8/lib/libpspell.15.dylib
 - [x] libpq-15.4
 - [ ] gettext/0.21.1/lib/libintl.8.dylib
-- [ ] tidy-html5/5.8.0/lib/libtidy.5.8.0.dylib
+- [x] tidy-html5-5.8.0
 - [ ] aspell/0.60.8/lib/libaspell.15.dylib
 - [ ] krb5/1.21.2/lib/libcom_err.3.0.dylib
 - [ ] icu4c/73.2/lib/libicuio.73.2.dylib
