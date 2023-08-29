@@ -181,6 +181,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[SimpleXML](https://www.php.net/manual/en/book.simplexml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[SQLite3](https://www.php.net/manual/en/book.sqlite3.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Standard PHP Library (SPL)](https://www.php.net/manual/en/book.spl.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Tidy](https://www.php.net/manual/en/book.tidy.php)|`--with-tidy={parent of lib/include}`|*disabled*|<ul><li>- [x] </li></ul>|
 |[Tokenizer](https://www.php.net/manual/en/book.tokenizer.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[XML Parser](https://www.php.net/manual/en/book.xml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLReader](https://www.php.net/manual/en/book.xmlreader.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
