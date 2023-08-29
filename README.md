@@ -97,12 +97,6 @@ ZEND_END_ARG_INFO()
 
 This will install static `php-cgi` with the same 3 dependencies as `php-fcgi-4d`.
 
-## Rename php-cgi program
-
-```
-./configure --program-transform-name=php-fcgi-4d
-```
-
 ## Build static PHP with embedded `libiconv`
 
 Download libraries, then `lipo -create`:
@@ -123,13 +117,9 @@ export LIBS="-lz -liconv"
 
 …but this won't eliminate compiler errors, because we are using `libiconv` implementation.
 
-We could add to *ext/iconv/iconv.c*
-
-```c
-#define LIBICONV_PLUG 1
 ```
-
-…but this won't eliminate linker errors.
+export CFLAGS="-I{path-to-user-header-dir}"
+```
 
 ---
 
