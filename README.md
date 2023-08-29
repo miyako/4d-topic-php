@@ -173,7 +173,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 ### Static Libraries
 
 ```
-export LIBS="-lz -liconv -lonig -lldap"
+export LIBS="-lz -liconv -lonig"
 ```
 
 ---
