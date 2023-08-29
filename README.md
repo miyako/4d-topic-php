@@ -238,6 +238,14 @@ export LIBS="
  -lcrypto -lssl"
 ```
 
+## Build static PHP with embedded `libcurl`
+
+Add `--with-curl`.
+
+**Error**: `configure: error: There is something wrong. Please check config.log for more information.`
+
+**Solution?**: Edit *configure* to skip the hard testing of `curl_easy_perform"`
+
 ## Build static PHP with embedded `libldap`
 
 **Error**: `configure: error: LDAP build check failed. Please check config.log for more information.`
