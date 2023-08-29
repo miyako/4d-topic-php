@@ -110,11 +110,11 @@ brew fetch --bottle-tag=x86_64_big_sur libiconv
 
 Indicate static library location:
 
-We could indicate static library location. Adding `-liconv` to `LDFLAGS` also seems to help:
+We could indicate static library location. Also add `-liconv` to `LDFLAGS`:
 
 ```
 export CFLAGS="-I{path-to-user-header-dir}" 
-export LDFLAGS="-L{path-to-static-library-dir}"
+export LDFLAGS="-L{path-to-static-library-dir} -liconv"
 export LIBS="-lz  -lsqlite3 -liconv"
 ```
 
@@ -246,7 +246,11 @@ Add `--with-curl`.
 
 **Error**: `configure: error: There is something wrong. Please check config.log for more information.`
 
-* more LIB?
+**Solution (kind of)**: Edit *configure* to skip the hard testing of `curl_easy_perform`.
+
+**Error**: Undefined symbols.
+
+Just throw more libraries and see what sticks?
 
 ```
 export LIBS="
@@ -263,11 +267,27 @@ export LIBS="
  -ltidy
  -lgmp
  -lcrypto -lssl
- -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber -lbrotlidec -lbrotlienc -lbrotlicommon
- -framework GSS -framework SystemConfiguration -framework Cocoa -framework Security"
+ -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber
+ -lbrotlidec -lbrotlienc -lbrotlicommon
+ -lsasl2
+ -lunistring
+ -lrtmp
+ -framework GSS
+ -framework SystemConfiguration
+ -framework Cocoa
+ -framework Security
+ -framework LDAP
+ -framework Kerberos"
 ```
 
-**Solution?**: Edit *configure* to skip the hard testing of `curl_easy_perform`
+Also specify subdirectories for headers because some symbols are constants.
+
+```
+export CFLAGS="
+ -I{path-to-user-header-dir}
+ -I{path-to-user-header-dir}/brotli
+ -I{path-to-user-header-dir}/curl"
+```
 
 ## Build static PHP with embedded `libldap`
 
