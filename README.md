@@ -198,7 +198,7 @@ Typical depenceies:
 - [ ] libzip/1.10.1/lib/libzip.5.5.dylib
 - [ ] gd/2.3.3_5/lib/libgd.3.dylib
 - [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
-- [ ] openssl@3/3.1.2/lib/libssl.3.dylib
+- [x] openssl@3/3.1.2/lib/libssl.3.dylib
 - [ ] pcre2/10.42/lib/libpcre2-8.0.dylib
 - [ ] curl/8.2.1/lib/libcurl.4.dylib
 - [ ] unixodbc/2.3.12/lib/libodbc.2.dylib
