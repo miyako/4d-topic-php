@@ -246,6 +246,27 @@ Add `--with-curl`.
 
 **Error**: `configure: error: There is something wrong. Please check config.log for more information.`
 
+* more LIB?
+
+```
+export LIBS="
+ -lz
+ -lsqlite3
+ -liconv
+ -lbz2
+ -lzip
+ -lzstd
+ -lonig
+ -llzma
+ -lgd
+ -lwebp -lavif -ltiff -lpng16 -lsharpyuv
+ -ltidy
+ -lgmp
+ -lcrypto -lssl
+ -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber -lbrotlidec -lbrotlienc -lbrotlicommon
+ -framework GSS -framework SystemConfiguration -framework Cocoa -framework Security"
+```
+
 **Solution?**: Edit *configure* to skip the hard testing of `curl_easy_perform`
 
 ## Build static PHP with embedded `libldap`
