@@ -180,7 +180,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[Image Processing and GD](https://www.php.net/manual/en/book.image.php)|`--enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv`|*disabled*|<ul><li>- [x] </li></ul>|
 |[JavaScript Object Notation](https://www.php.net/manual/en/book.json.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>|*disabled*||
+|[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[OpenSSL](https://www.php.net/manual/en/book.openssl.php)|`--with-openssl`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Regular Expressions (Perl-Compatible)](https://www.php.net/manual/en/book.pcre.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
@@ -208,10 +208,12 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 ```
 ./configure
  --with-tidy=DIR
+ --with-ldap=DIR
+ --with-curl=DIR
+ --with-openssl=DIR
  --with-zlib
  --with-gmp
  --with-zip
- --with-openssl
  --enable-static
  --enable-bcmath
  --enable-calendar
@@ -222,7 +224,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
  --enable-mbstring
 ```
 
-### Static Libraries
+### Static Libraries and Frameworks
 
 ```
 export LIBS="
@@ -234,10 +236,22 @@ export LIBS="
  -lzstd
  -lonig
  -llzma
- -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv
+ -lgd
+ -lwebp -lavif -ltiff -lpng16 -lsharpyuv
  -ltidy
  -lgmp
- -lcrypto -lssl"
+ -lcrypto -lssl
+ -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber
+ -lbrotlidec -lbrotlienc -lbrotlicommon
+ -lsasl2
+ -lunistring
+ -lrtmp
+ -framework GSS
+ -framework SystemConfiguration
+ -framework Cocoa
+ -framework Security
+ -framework LDAP
+ -framework Kerberos"
 ```
 
 ## Build static PHP with embedded `libcurl`
@@ -267,35 +281,6 @@ export CFLAGS="
  -I{path-to-user-header-dir}/curl"
 ```
 
-More libraries and frameworks:
-
-```
-export LIBS="
- -lz
- -lsqlite3
- -liconv
- -lbz2
- -lzip
- -lzstd
- -lonig
- -llzma
- -lgd
- -lwebp -lavif -ltiff -lpng16 -lsharpyuv
- -ltidy
- -lgmp
- -lcrypto -lssl
- -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber
- -lbrotlidec -lbrotlienc -lbrotlicommon
- -lsasl2
- -lunistring
- -lrtmp
- -framework GSS
- -framework SystemConfiguration
- -framework Cocoa
- -framework Security
- -framework LDAP
- -framework Kerberos"
-```
 ## Build static PHP with embedded `libldap`
 
 **Error**: `configure: error: Cannot find ldap.h`
