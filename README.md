@@ -228,7 +228,7 @@ Typical depenceies:
 - [ ] argon2/20190702_1/lib/libargon2.1.dylib
 - [ ] gmp/6.2.1_1/lib/libgmp.10.dylib
 - [ ] krb5/1.21.2/lib/libkrb5support.1.1.dylib
-- [ ] libzip/1.10.1/lib/libzip.5.5.dylib
+- [x] libzip-1.10.1
 - [x] gd-2.3.3_5
 - [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
 - [ ] openssl@3/3.1.2/lib/libssl.3.dylib
