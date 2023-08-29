@@ -24,7 +24,7 @@ make
 make install
 ```
 
-This will install static php-cgi with only the following system dependencies:
+This will install static `php-cgi` with only the following system dependencies:
  
 ```
 /usr/lib/libresolv.9.dylib
@@ -94,6 +94,8 @@ ZEND_END_ARG_INFO()
 ```c
 #define SQLITE_OMIT_LOAD_EXTENSION 1
 ```
+
+This will install static `php-cgi` with the same 3 dependencies as `php-fcgi-4d`.
 
 ## Build static PHP with embedded `libiconv`
 
