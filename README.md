@@ -126,6 +126,50 @@ export LIBS="-lz -liconv"
 #endif
 ```
 
+## Does it actually work?
+
+Rename the program as `php-fcgi-4d` and replace the one inside 4D.app.
+
+Test call:
+
+```4d
+var $returnValue : Text
+
+$success:=PHP Execute(""; "phpversion"; $returnValue)
+
+var $response : Text
+ARRAY TEXT($labels; 0)
+ARRAY TEXT($values; 0)
+
+PHP GET FULL RESPONSE($response; $labels; $values)
+```
+
+**Result**: `$success` is `False`. Activity Monitor shows multiple instances of `php-fcgi-4d`. `X-4DPHP-Error-php-interpreter` contains the message:
+
+```
+PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding() in _4D_Execute_PHP.php:131
+```
+
+**Solution**: Add `--enable-mbstring` to `configure`. In fact, enable all the extensions available in 4D.
+
+|Modules or Extension|Configure Option|4D v20|This Repository|
+|-|-|:-:|-|
+|[BCMath](https://www.php.net/manual/en/book.bc.php)|`--enable-bcmath`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Calendar](https://www.php.net/manual/en/book.calendar.php)|`--enable-calendar`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Character type checking](https://www.php.net/manual/en/book.ctype.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Date and Time](https://www.php.net/manual/en/book.datetime.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Document Object Model](https://www.php.net/manual/en/book.dom.php)|(default)||<ul><li>- [x] </li></ul>|
+|[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>||
+|[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>||
+|[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)||<ul><li>- [x] </li></ul>|
+|[JavaScript Object Notation](https://www.php.net/manual/en/book.json.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)||<ul><li>- [x] </li></ul>|
+|[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
+|[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+
 ---
 
 Typical depenceies:
@@ -140,7 +184,7 @@ Typical depenceies:
 - [ ] icu4c/73.2/lib/libicuio.73.2.dylib
 - [ ] krb5/1.21.2/lib/libk5crypto.3.1.dylib
 - [ ] freetds/1.3.20/lib/libsybdb.5.dylib
-- [ ] openldap/2.6.6/lib/libldap.2.dylib
+- [x] openldap/2.6.6/lib/libldap.2.dylib
 - [ ] krb5/1.21.2/lib/libgssapi_krb5.2.2.dylib
 - [ ] argon2/20190702_1/lib/libargon2.1.dylib
 - [ ] gmp/6.2.1_1/lib/libgmp.10.dylib
