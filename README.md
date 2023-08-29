@@ -1,9 +1,11 @@
 # 4d-topic-php
 Setup PHP for 4D
 
+## Build static PHP with minimal dependencies
+
 Clone or download [php-src](https://github.com/php/php-src).
 
-By default, `re2c` is missing and `bison` is too old.
+By default, `re2c` is missing and `bison` is too old. 
 
 ```
 brew install re2c
@@ -16,10 +18,120 @@ Restart Terminal.
 ```
 cd {php-src-master}
 autoreconf
-export LDFLAGS="-L{path-to-static-libs}"
-./configure
+export LIBS="-lz"
+/configure --enable-static --without-iconv --prefix={path-to-install-dir}
 make
+make install
 ```
+
+This will install static `php-cgi` with only the following system dependencies:
+ 
+```
+/usr/lib/libresolv.9.dylib
+/usr/lib/libnetwork.dylib
+/usr/lib/libSystem.B.dylib
+/usr/lib/libz.1.dylib
+/usr/lib/libsqlite3.dylib
+```
+
+For comparision, the v20 `php-fcgi-4d` file looks like this:
+
+```
+/usr/lib/libresolv.9.dylib
+/usr/lib/libnetwork.dylib
+/usr/lib/libSystem.B.dylib
+```
+
+According to the [PHP modules support](https://doc.4d.com/4Dv20/4D/20/PHP-modules-support.300-6238471.en.html), `SQLite3` is enabled so the library must be statically linked. `Zip`, `Zlib`, `Iconv`, as well as XML-releated featured that depend on `Zlib` are all disabled.
+
+To create universal binary, restart Terminal using Rosetta, repeat, then `lipo -create`.
+
+## Build static PHP with embedded `libz` and `libsqlite3`
+
+Download libraries, then `lipo -create`:
+
+```
+brew fetch --bottle-tag=arm64_big_sur sqlite
+brew fetch --bottle-tag=x86_64_big_sur sqlite
+brew fetch --bottle-tag=arm64_big_sur zlib
+brew fetch --bottle-tag=x86_64_big_sur zlib
+```
+
+Direct path to static library directory:
+
+```
+export LDFLAGS="-L{path-to-static-library-dir}"
+export LIBS="-lz -lsqlite3"
+```
+
+**Error**: `sqlite3.c:446:6: error: call to undeclared function 'sqlite3_load_extension'`
+
+c.f. https://bugs.python.org/issue44997
+
+We could edit */ext/sqlite3/sqlite3.stub.php* like so:
+
+```c
+#ifndef SQLITE_OMIT_LOAD_EXTENSION
+    /** @tentative-return-type */
+#    public function loadExtension(string $name): bool {}
+#define SQLITE_OMIT_LOAD_EXTENSION 1
+#endif
+```
+…but this won't update the source files.
+
+**Solution**: Remove from *ext/sqlite3/sqlite3_arginfo.h*
+
+```c
+#if !defined(SQLITE_OMIT_LOAD_EXTENSION)
+ZEND_BEGIN_ARG_WITH_TENTATIVE_RETURN_TYPE_INFO_EX(arginfo_class_SQLite3_loadExtension, 0, 1, _IS_BOOL, 0)
+	ZEND_ARG_TYPE_INFO(0, name, IS_STRING, 0)
+ZEND_END_ARG_INFO()
+#endif
+```
+
+…and add to *ext/sqlite3/sqlite3.c*
+
+```c
+#define SQLITE_OMIT_LOAD_EXTENSION 1
+```
+
+This will install static `php-cgi` with the same 3 dependencies as `php-fcgi-4d`.
+
+## Rename php-cgi program
+
+```
+./configure --program-transform-name=php-fcgi-4d
+```
+
+## Build static PHP with embedded `libiconv`
+
+Download libraries, then `lipo -create`:
+
+```
+brew fetch --bottle-tag=arm64_big_sur libiconv
+brew fetch --bottle-tag=x86_64_big_sur libiconv
+```
+
+**Error**: `configure: error: Please reinstall the iconv library.`
+
+We could add `-liconv` to `LDFLAGS`
+
+```
+export LDFLAGS="-L{path-to-static-library-dir} -liconv"
+export LIBS="-lz -liconv"
+```
+
+…but this won't eliminate compiler errors, because we are using `libiconv` implementation.
+
+We could add to *ext/iconv/iconv.c*
+
+```c
+#define LIBICONV_PLUG 1
+```
+
+…but this won't eliminate linker errors.
+
+---
 
 Typical depenceies:
 
@@ -72,7 +184,7 @@ Typical depenceies:
 - [ ] webp/1.3.1/lib/libwebp.7.1.7.dylib
 - [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
 - [ ] little-cms2/2.15/lib/liblcms2.2.dylib
-- [ ] jpeg-xl/0.8.2/lib/libjxl.0.8.2.dylib
+- [x] jpeg-xl/0.8.2/lib/libjxl.0.8.2.dylib
 - [ ] aom/3.6.1/lib/libaom.3.6.1.dylib
 - [x] libvmaf-2.3.1
 - [ ] icu4c/73.2/lib/libicudata.73.2.dylib
