@@ -68,7 +68,7 @@ export LIBS="-lz -lsqlite3"
 
 c.f. https://bugs.python.org/issue44997
 
-We coud edit */ext/sqlite3/sqlite3.stub.php* like so:
+We could edit */ext/sqlite3/sqlite3.stub.php* like so:
 
 ```c
 #ifndef SQLITE_OMIT_LOAD_EXTENSION
@@ -79,7 +79,7 @@ We coud edit */ext/sqlite3/sqlite3.stub.php* like so:
 ```
 …but this won't update the source files.
 
-**Solution**:  Remove from *sqlite3_arginfo.h*
+**Solution**: Remove from *sqlite3_arginfo.h*
 
 ```c
 #if !defined(SQLITE_OMIT_LOAD_EXTENSION)
@@ -89,7 +89,7 @@ ZEND_END_ARG_INFO()
 #endif
 ```
 
-…and add to *sqlite3.c*
+…and add to *ext/sqlite3/sqlite3.c*
 
 ```c
 #define SQLITE_OMIT_LOAD_EXTENSION 1
@@ -106,11 +106,19 @@ brew fetch --bottle-tag=x86_64_big_sur libiconv
 
 **Error**: `configure: error: Please reinstall the iconv library.`
 
-**Solution**: Add `-liconv` to `LDFLAGS`
+We could add `-liconv` to `LDFLAGS`
 
 ```
 export LDFLAGS="-L{path-to-static-library-dir} -liconv"
 export LIBS="-lz -liconv"
+```
+
+…but this won't eliminate linker errors, because we are using `libiconv` implementation.
+
+**Solution**: Add to *ext/iconv/iconv.c*
+
+```c
+#define LIBICONV_PLUG 1
 ```
 
 ---
