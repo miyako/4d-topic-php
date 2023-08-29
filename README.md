@@ -254,6 +254,7 @@ Typical depenceies:
 - [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
 - [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
 - [ ] icu4c/73.2/lib/libicuio.73.2.dylib
+- [ ] icu4c/73.2/lib/libicudata.73.2.dylib
 - [x] zstd-1.5.5
 - [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
 - [ ] freetype/2.13.1/lib/libfreetype.6.dylib
@@ -266,7 +267,6 @@ Typical depenceies:
 - [x] jpeg-xl-0.8.2
 - [ ] aom/3.6.1/lib/libaom.3.6.1.dylib
 - [x] libvmaf-2.3.1
-- [ ] icu4c/73.2/lib/libicudata.73.2.dylib
 
 ```
 --without-iconv
