@@ -58,6 +58,7 @@ typedef void* iconv_t;
 #define EILSEQ 
 #endif
 
+#undef LIBICONV_PLUG
 
 #ifdef __cplusplus
 extern "C" {
