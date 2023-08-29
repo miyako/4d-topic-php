@@ -44,7 +44,7 @@ For comparision, the v20 `php-fcgi-4d` file looks like this:
 
 According to the [PHP modules support](https://doc.4d.com/4Dv20/4D/20/PHP-modules-support.300-6238471.en.html) documentation, `SQLite3` is enabled so the library must be statically linked. `Zip`, `Zlib`, `Iconv`, as well as XML-releated featured that depend on `Zlib` are all disabled.
 
-To create universal binary, restart Terminal using Rosetta, repeat, then `lipo -create`.
+To create universal binary, restart Terminal using Rosetta, `make distclean`, repeat, then `lipo -create`.
 
 ## Build static PHP with embedded `libz` and `libsqlite3`
 
@@ -57,7 +57,7 @@ brew fetch --bottle-tag=arm64_big_sur zlib
 brew fetch --bottle-tag=x86_64_big_sur zlib
 ```
 
-Direct path to static library directory:
+Indicate static library location:
 
 ```
 export LDFLAGS="-L{path-to-static-library-dir}"
@@ -108,12 +108,14 @@ brew fetch --bottle-tag=x86_64_big_sur libiconv
 
 **Error**: `configure: error: Please reinstall the iconv library.`
 
-We could link to the homebrew header file and also add `-liconv` to `LDFLAGS`:
+Indicate static library location:
+
+We could indicate static library location. Adding `-liconv` to `LDFLAGS` also seems to help:
 
 ```
 export CFLAGS="-I{path-to-user-header-dir}" 
-export LDFLAGS="-L{path-to-static-library-dir} -liconv"
-export LIBS="-lz -liconv"
+export LDFLAGS="-L{path-to-static-library-dir}"
+export LIBS="-lz  -lsqlite3 -liconv"
 ```
 
 …but this won't eliminate compiler errors.
@@ -165,6 +167,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[BCMath](https://www.php.net/manual/en/book.bc.php)|`--enable-bcmath`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Calendar](https://www.php.net/manual/en/book.calendar.php)|`--enable-calendar`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Character type checking](https://www.php.net/manual/en/book.ctype.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Client URL Library](https://www.php.net/manual/en/book.curl.php)|`--with-curl=DIR`|*disabled*|*disabled*|
 |[Date and Time](https://www.php.net/manual/en/book.datetime.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Document Object Model](https://www.php.net/manual/en/book.dom.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
@@ -224,10 +227,11 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 ```
 export LIBS="
  -lz
+ -lsqlite3
+ -liconv
  -lbz2
  -lzip
  -lzstd
- -liconv
  -lonig
  -llzma
  -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv
@@ -235,6 +239,35 @@ export LIBS="
  -lgmp
  -lcrypto -lssl"
 ```
+
+## Build static PHP with embedded `libcurl`
+
+Add `--with-curl`.
+
+**Error**: `configure: error: There is something wrong. Please check config.log for more information.`
+
+* more LIB?
+
+```
+export LIBS="
+ -lz
+ -lsqlite3
+ -liconv
+ -lbz2
+ -lzip
+ -lzstd
+ -lonig
+ -llzma
+ -lgd
+ -lwebp -lavif -ltiff -lpng16 -lsharpyuv
+ -ltidy
+ -lgmp
+ -lcrypto -lssl
+ -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber -lbrotlidec -lbrotlienc -lbrotlicommon
+ -framework GSS -framework SystemConfiguration -framework Cocoa -framework Security"
+```
+
+**Solution?**: Edit *configure* to skip the hard testing of `curl_easy_perform`
 
 ## Build static PHP with embedded `libldap`
 
