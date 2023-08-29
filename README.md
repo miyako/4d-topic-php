@@ -244,7 +244,7 @@ export LIBS="
 
 **Error**: `configure: error: There is something wrong. Please check config.log for more information.`
 
-Add path to custom installations:
+**Solution**: Add path to custom installations:
 
 ```
 ./configure
@@ -298,6 +298,11 @@ export LIBS="
 ```
 ## Build static PHP with embedded `libldap`
 
-**Error**: `configure: error: LDAP build check failed. Please check config.log for more information.`
+**Error**: `configure: error: Cannot find ldap.h`
 
-No workaround. Yet.
+**Solution**: Add path to custom installations:
+
+```
+./configure
+ --with-ldap=DIR
+```
