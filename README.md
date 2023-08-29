@@ -97,12 +97,6 @@ ZEND_END_ARG_INFO()
 
 This will install static `php-cgi` with the same 3 dependencies as `php-fcgi-4d`.
 
-## Rename php-cgi program
-
-```
-./configure --program-transform-name=php-fcgi-4d
-```
-
 ## Build static PHP with embedded `libiconv`
 
 Download libraries, then `lipo -create`:
