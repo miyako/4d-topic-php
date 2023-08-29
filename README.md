@@ -163,9 +163,9 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>||
-|[Image Processing and GD](https://www.php.net/manual/en/book.image.php)|`--enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv`|*disabled*|<ul><li>- [x] </li></ul>|
 |[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[Image Processing and GD](https://www.php.net/manual/en/book.image.php)|`--enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv`|*disabled*|<ul><li>- [x] </li></ul>|
 |[JavaScript Object Notation](https://www.php.net/manual/en/book.json.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
@@ -186,15 +186,14 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[XML Parser](https://www.php.net/manual/en/book.xml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLReader](https://www.php.net/manual/en/book.xmlreader.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLWriter](https://www.php.net/manual/en/book.xmlwriter.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|<ul><li>- [x] </li></ul>|
+|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|*disabled*
 |[Zlib Compression](https://www.php.net/manual/en/book.zlib.php)|`--with-zlib`|*disabled*|<ul><li>- [x] </li></ul>|
 
 ### Configure Options
 
 ```
 ./configure
- --with-tidy
- --with-zip
+ --with-tidy=DIR
  --with-zlib
  --enable-static
  --enable-bcmath
@@ -207,7 +206,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 ### Static Libraries
 
 ```
-export LIBS="-lz -lzip -lbz2 -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy"
+export LIBS="-lz -lbz2 -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy"
 ```
 
 ---
