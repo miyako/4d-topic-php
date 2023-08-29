@@ -163,6 +163,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>||
+|[Image Processing and GD](https://www.php.net/manual/en/book.image.php)|`--enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv`|*disabled*|<ul><li>- [x] </li></ul>|
 |[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[JavaScript Object Notation](https://www.php.net/manual/en/book.json.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
