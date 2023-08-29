@@ -256,7 +256,18 @@ Add path to custom installations:
 
 **Solution**: Compile and use a hybrid version that contains both names (`_iconv` and `_libiconv`).
 
-Just throw more libraries and see what sticks?
+**Error**: Undefined symbols: `libbrotli` constants.
+
+**Solution**: Specify subdirectory paths to header files:
+
+```
+export CFLAGS="
+ -I{path-to-user-header-dir}
+ -I{path-to-user-header-dir}/brotli
+ -I{path-to-user-header-dir}/curl"
+```
+
+More libraries and frameworks:
 
 ```
 export LIBS="
@@ -285,16 +296,6 @@ export LIBS="
  -framework LDAP
  -framework Kerberos"
 ```
-
-Also specify subdirectories for headers because some symbols are constants.
-
-```
-export CFLAGS="
- -I{path-to-user-header-dir}
- -I{path-to-user-header-dir}/brotli
- -I{path-to-user-header-dir}/curl"
-```
-
 ## Build static PHP with embedded `libldap`
 
 **Error**: `configure: error: LDAP build check failed. Please check config.log for more information.`
