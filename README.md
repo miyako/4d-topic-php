@@ -42,7 +42,7 @@ For comparision, the v20 `php-fcgi-4d` file looks like this:
 /usr/lib/libSystem.B.dylib
 ```
 
-According to the [PHP modules support](https://doc.4d.com/4Dv20/4D/20/PHP-modules-support.300-6238471.en.html), `SQLite3` is enabled so the library must be statically linked. `Zip`, `Zlib`, `Iconv`, as well as XML-releated featured that depend on `Zlib` are all disabled.
+According to the [PHP modules support](https://doc.4d.com/4Dv20/4D/20/PHP-modules-support.300-6238471.en.html) documentation, `SQLite3` is enabled so the library must be statically linked. `Zip`, `Zlib`, `Iconv`, as well as XML-releated featured that depend on `Zlib` are all disabled.
 
 To create universal binary, restart Terminal using Rosetta, repeat, then `lipo -create`.
 
@@ -153,22 +153,45 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 **Solution**: Add `--enable-mbstring` to `configure`. In fact, enable all the extensions available in 4D.
 
 |Modules or Extension|Configure Option|4D v20|This Repository|
-|-|-|:-:|-|
+|-|-|:-:|:-:|
 |[BCMath](https://www.php.net/manual/en/book.bc.php)|`--enable-bcmath`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Calendar](https://www.php.net/manual/en/book.calendar.php)|`--enable-calendar`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Character type checking](https://www.php.net/manual/en/book.ctype.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Date and Time](https://www.php.net/manual/en/book.datetime.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[Document Object Model](https://www.php.net/manual/en/book.dom.php)|(default)||<ul><li>- [x] </li></ul>|
-|[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>||
+|[Document Object Model](https://www.php.net/manual/en/book.dom.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>||
 |[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)||<ul><li>- [x] </li></ul>|
+|[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[JavaScript Object Notation](https://www.php.net/manual/en/book.json.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)||<ul><li>- [x] </li></ul>|
+|[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Regular Expressions (Perl-Compatible)](https://www.php.net/manual/en/book.pcre.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[PHP Data Objects](https://www.php.net/manual/en/book.pdo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[SQLite Functions (PDO_SQLITE)](https://www.php.net/manual/en/ref.pdo-sqlite.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Phar](https://www.php.net/manual/en/book.phar.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[POSIX](https://www.php.net/manual/en/book.posix.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Random Number Generators and Functions Related to Randomness](https://www.php.net/manual/en/book.random.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Reflection](https://www.php.net/manual/en/book.reflection.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Sessions](https://www.php.net/manual/en/features.sessions.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[SimpleXML](https://www.php.net/manual/en/book.simplexml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[SQLite3](https://www.php.net/manual/en/book.sqlite3.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Standard PHP Library (SPL)](https://www.php.net/manual/en/book.spl.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Tokenizer](https://www.php.net/manual/en/book.tokenizer.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[XML Parser](https://www.php.net/manual/en/book.xml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[XMLReader](https://www.php.net/manual/en/book.xmlreader.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[XMLWriter](https://www.php.net/manual/en/book.xmlwriter.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*||
+|[Zlib Compression](https://www.php.net/manual/en/book.zlib.php)|`--with-zlib`|*disabled*|<ul><li>- [x] </li></ul>|
+
+### Static Libraries
+
+```
+export LIBS="-lz -liconv -lonig -llzma"
+```
 
 ---
 
@@ -192,7 +215,7 @@ Typical depenceies:
 - [ ] libzip/1.10.1/lib/libzip.5.5.dylib
 - [ ] gd/2.3.3_5/lib/libgd.3.dylib
 - [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
-- [ ] openssl@3/3.1.2/lib/libssl.3.dylib
+- [x] openssl@3/3.1.2/lib/libssl.3.dylib
 - [ ] pcre2/10.42/lib/libpcre2-8.0.dylib
 - [ ] curl/8.2.1/lib/libcurl.4.dylib
 - [ ] unixodbc/2.3.12/lib/libodbc.2.dylib
@@ -205,7 +228,7 @@ Typical depenceies:
 - [ ] libnghttp2/1.55.1/lib/libnghttp2.14.dylib
 - [ ] libidn2/2.3.4_1/lib/libidn2.0.dylib
 - [ ] libtool/2.4.7/lib/libltdl.7.dylib
-- [ ] oniguruma/6.9.8/lib/libonig.5.dylib
+- [x] oniguruma/6.9.8/lib/libonig.5.dylib
 - [ ] rtmpdump/2.4+20151223_2/lib/librtmp.1.dylib
 - [ ] libavif/0.11.1/lib/libavif.15.0.1.dylib
 - [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
