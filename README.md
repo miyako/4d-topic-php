@@ -113,13 +113,15 @@ export LDFLAGS="-L{path-to-static-library-dir} -liconv"
 export LIBS="-lz -liconv"
 ```
 
-…but this won't eliminate linker errors, because we are using `libiconv` implementation.
+…but this won't eliminate compiler errors, because we are using `libiconv` implementation.
 
-**Solution**: Add to *ext/iconv/iconv.c*
+We could add to *ext/iconv/iconv.c*
 
 ```c
 #define LIBICONV_PLUG 1
 ```
+
+…but this won't eliminate linker errors.
 
 ---
 
