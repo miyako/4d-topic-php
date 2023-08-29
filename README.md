@@ -248,7 +248,9 @@ Add `--with-curl`.
 
 **Solution (kind of)**: Edit *configure* to skip the hard testing of `curl_easy_perform`.
 
-**Error**: Undefined symbols.
+**Error**: Undefined symbols: `libunistring` expects a non-plug version of `libiconv`. 
+
+**Solution**: Compile and use a hybrid version that contains both names (`_iconv` and `_libiconv`).
 
 Just throw more libraries and see what sticks?
 
