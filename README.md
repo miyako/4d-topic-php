@@ -185,7 +185,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[XML Parser](https://www.php.net/manual/en/book.xml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLReader](https://www.php.net/manual/en/book.xmlreader.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLWriter](https://www.php.net/manual/en/book.xmlwriter.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*||
+|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|*disabled*|
 |[Zlib Compression](https://www.php.net/manual/en/book.zlib.php)|`--with-zlib`|*disabled*|<ul><li>- [x] </li></ul>|
 
 ### Configure Options
