@@ -150,7 +150,9 @@ PHP GET FULL RESPONSE($response; $labels; $values)
 PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding() in _4D_Execute_PHP.php:131
 ```
 
-**Solution**: Add `--enable-mbstring` to `configure`. In fact, enable all the extensions available in 4D.
+**Solution**: Add `--enable-mbstring` to `configure`. 
+
+## Build static PHP with modules and extensions
 
 |Modules or Extension|Configure Option|4D v20|This Repository|
 |-|-|:-:|:-:|
@@ -163,6 +165,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>||
+|[GNU Multiple Precision](https://www.php.net/manual/en/book.gmp.php)|`--with-gmp`|*disabled*|<ul><li>- [x] </li></ul>|
 |[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Image Processing and GD](https://www.php.net/manual/en/book.image.php)|`--enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv`|*disabled*|<ul><li>- [x] </li></ul>|
@@ -195,6 +198,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 ./configure
  --with-tidy=DIR
  --with-zlib
+ --with-gmp
  --enable-static
  --enable-bcmath
  --enable-calendar
@@ -206,7 +210,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 ### Static Libraries
 
 ```
-export LIBS="-lz -lbz2 -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy"
+export LIBS="-lz -lbz2 -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy -lgmp"
 ```
 
 ---
@@ -220,21 +224,21 @@ Typical depenceies:
 - [ ] aspell/0.60.8/lib/libaspell.15.dylib
 - [ ] krb5/1.21.2/lib/libcom_err.3.0.dylib
 - [ ] krb5/1.21.2/lib/libk5crypto.3.1.dylib
+- [ ] krb5/1.21.2/lib/libkrb5support.1.1.dylib
+- [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
 - [ ] freetds/1.3.20/lib/libsybdb.5.dylib
 - [x] openldap-2.6.6
 - [x] openldap-2.6.6-liblber
 - [ ] krb5/1.21.2/lib/libgssapi_krb5.2.2.dylib
 - [ ] argon2/20190702_1/lib/libargon2.1.dylib
-- [ ] gmp/6.2.1_1/lib/libgmp.10.dylib
-- [ ] krb5/1.21.2/lib/libkrb5support.1.1.dylib
+- [x] gmp-6.2.1_1
 - [x] libzip-1.10.1
 - [x] gd-2.3.3_5
-- [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
 - [ ] openssl@3/3.1.2/lib/libssl.3.dylib
 - [ ] pcre2/10.42/lib/libpcre2-8.0.dylib
 - [ ] curl/8.2.1/lib/libcurl.4.dylib
 - [ ] unixodbc/2.3.12/lib/libodbc.2.dylib
-- [ ] sqlite/3.43.0/lib/libsqlite3.0.dylib
+- [x] sqlite-3.43.0
 - [ ] libsodium/1.0.18_1/lib/libsodium.23.dylib
 - [ ] brotli/1.0.9/lib/libbrotlidec.1.0.9.dylib
 - [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
