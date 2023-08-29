@@ -205,6 +205,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
  --with-tidy=DIR
  --with-zlib
  --with-gmp
+ --with-zip
  --enable-static
  --enable-bcmath
  --enable-calendar
@@ -216,7 +217,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 ### Static Libraries
 
 ```
-export LIBS="-lz -lbz2 -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy -lgmp"
+export LIBS="-lz -lbz2 -lzip -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy -lgmp"
 ```
 
 ---
