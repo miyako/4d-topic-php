@@ -188,10 +188,24 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*||
 |[Zlib Compression](https://www.php.net/manual/en/book.zlib.php)|`--with-zlib`|*disabled*|<ul><li>- [x] </li></ul>|
 
+### Configure Options
+
+```
+./configure
+ --with-zip
+ --with-zlib
+ --enable-static
+ --enable-bcmath
+ --enable-calendar
+ --enable-exif
+ --enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv
+ --enable-mbstring
+```
+
 ### Static Libraries
 
 ```
-export LIBS="-lz -liconv -lonig -llzma"
+export LIBS="-lz -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16"
 ```
 
 ---
@@ -214,7 +228,7 @@ Typical depenceies:
 - [ ] gmp/6.2.1_1/lib/libgmp.10.dylib
 - [ ] krb5/1.21.2/lib/libkrb5support.1.1.dylib
 - [ ] libzip/1.10.1/lib/libzip.5.5.dylib
-- [ ] gd/2.3.3_5/lib/libgd.3.dylib
+- [x] gd/2.3.3_5/lib/libgd.3.dylib
 - [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
 - [x] openssl@3/3.1.2/lib/libssl.3.dylib
 - [ ] pcre2/10.42/lib/libpcre2-8.0.dylib
@@ -231,20 +245,20 @@ Typical depenceies:
 - [ ] libtool/2.4.7/lib/libltdl.7.dylib
 - [x] oniguruma/6.9.8/lib/libonig.5.dylib
 - [ ] rtmpdump/2.4+20151223_2/lib/librtmp.1.dylib
-- [ ] libavif/0.11.1/lib/libavif.15.0.1.dylib
+- [x] libavif/0.11.1/lib/libavif.15.0.1.dylib
 - [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
 - [ ] brotli/1.0.9/lib/libbrotlicommon.1.0.9.dylib
-- [ ] libpng/1.6.40/lib/libpng16.16.dylib
+- [x] libpng/1.6.40/lib/libpng16.16.dylib
 - [x] xz-5.4.4
 - [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
 - [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
 - [x] zstd-1.5.5
 - [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
 - [ ] freetype/2.13.1/lib/libfreetype.6.dylib
-- [ ] jpeg-turbo/3.0.0/lib/libjpeg.8.3.2.dylib
+- [x] jpeg-turbo/3.0.0/lib/libjpeg.8.3.2.dylib
 - [ ] libunistring/1.1/lib/libunistring.5.dylib
 - [ ] libtiff/4.5.1/lib/libtiff.6.dylib
-- [ ] webp/1.3.1/lib/libwebp.7.1.7.dylib
+- [x] webp/1.3.1/lib/libwebp.7.1.7.dylib
 - [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
 - [ ] little-cms2/2.15/lib/liblcms2.2.dylib
 - [x] jpeg-xl/0.8.2/lib/libjxl.0.8.2.dylib
