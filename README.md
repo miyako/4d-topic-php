@@ -257,7 +257,7 @@ Typical depenceies:
 - [ ] freetype/2.13.1/lib/libfreetype.6.dylib
 - [x] jpeg-turbo/3.0.0/lib/libjpeg.8.3.2.dylib
 - [ ] libunistring/1.1/lib/libunistring.5.dylib
-- [ ] libtiff/4.5.1/lib/libtiff.6.dylib
+- [x] libtiff/4.5.1/lib/libtiff.6.dylib
 - [x] webp/1.3.1/lib/libwebp.7.1.7.dylib
 - [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
 - [ ] little-cms2/2.15/lib/liblcms2.2.dylib
