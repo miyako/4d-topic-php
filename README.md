@@ -150,7 +150,19 @@ PHP GET FULL RESPONSE($response; $labels; $values)
 PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding() in _4D_Execute_PHP.php:131
 ```
 
-**Solution**: Add `--enable-mbstring` to `configure`.
+**Solution**: Add `--enable-mbstring` to `configure`. In fact, enable all the extensions available in 4D.
+
+|Modules or Extension|Configure Option|4D v20|This Repository|
+|-|-|:-:|-|
+|[BCMath](https://www.php.net/manual/en/book.bc.php)|`--enable-bcmath`|<ul><li>- [x] </li></ul>||
+|[Calendar](https://www.php.net/manual/en/book.calendar.php)|`--enable-calendar`|<ul><li>- [x] </li></ul>||
+|[Character type checking](https://www.php.net/manual/en/book.ctype.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Date and Time](https://www.php.net/manual/en/book.datetime.php)||<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)||<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+
+
+|[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>||
 
 ---
 
