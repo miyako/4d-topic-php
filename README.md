@@ -236,59 +236,8 @@ export LIBS="
  -lcrypto -lssl"
 ```
 
----
+## Build static PHP with embedded `libldap`
 
-Typical depenceies:
+**Error**: `configure: error: LDAP build check failed. Please check config.log for more information.`
 
-- [x] libpq-15.4
-- [x] tidy-html5-5.8.0
-- [x] openldap-2.6.6
-- [x] openldap-2.6.6-liblber
-- [x] gmp-6.2.1_1
-- [x] libzip-1.10.1
-- [x] gd-2.3.3_5
-- [x] openssl@3/3.1.2/lib/libssl.3.dylib
-- [ ] pcre2/10.42/lib/libpcre2-8.0.dylib
-- [ ] curl/8.2.1/lib/libcurl.4.dylib
-- [ ] unixodbc/2.3.12/lib/libodbc.2.dylib
-- [x] sqlite-3.43.0
-- [x] openssl@3-3.1.2
-- [x] oniguruma-6.9.8
-- [x] libpng-1.6.40
-- [x] xz-5.4.4
-- [x] libavif-0.11.1
-- [x] zstd-1.5.5
-- [x] jpeg-turbo-3.0.0
-- [x] libtiff/4.5.1/lib/libtiff.6.dylib
-- [x] webp-1.3.1-libwebp
-- [x] webp-1.3.1-libsharpyuv
-- [x] jpeg-xl-0.8.2
-- [x] libvmaf-2.3.1
-- [ ] aom/3.6.1/lib/libaom.3.6.1.dylib
-- [ ] little-cms2/2.15/lib/liblcms2.2.dylib
-- [ ] libunistring/1.1/lib/libunistring.5.dylib
-- [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
-- [ ] freetype/2.13.1/lib/libfreetype.6.dylib
-- [ ] rtmpdump/2.4+20151223_2/lib/librtmp.1.dylib
-- [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
-- [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
-- [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
-- [ ] icu4c/73.2/lib/libicuio.73.2.dylib
-- [ ] icu4c/73.2/lib/libicudata.73.2.dylib
-- [ ] krb5/1.21.2/lib/libcom_err.3.0.dylib
-- [ ] krb5/1.21.2/lib/libk5crypto.3.1.dylib
-- [ ] krb5/1.21.2/lib/libkrb5support.1.1.dylib
-- [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
-- [ ] libnghttp2/1.55.1/lib/libnghttp2.14.dylib
-- [ ] libidn2/2.3.4_1/lib/libidn2.0.dylib
-- [ ] libtool/2.4.7/lib/libltdl.7.dylib
-- [ ] krb5/1.21.2/lib/libgssapi_krb5.2.2.dylib
-- [ ] freetds/1.3.20/lib/libsybdb.5.dylib
-- [ ] libsodium/1.0.18_1/lib/libsodium.23.dylib
-- [ ] brotli/1.0.9/lib/libbrotlidec.1.0.9.dylib
-- [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
-- [ ] brotli/1.0.9/lib/libbrotlicommon.1.0.9.dylib
-- [ ] highway/1.0.6/lib/libhwy.1.0.6.dylib
-- [ ] argon2/20190702_1/lib/libargon2.1.dylib
-- [ ] aspell/0.60.8/lib/libpspell.15.dylib
-- [ ] gettext/0.21.1/lib/libintl.8.dylib
+No workaround. Yet.
