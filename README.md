@@ -170,6 +170,12 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 
+### Static Libraries
+
+```
+export LIBS="-lz -liconv -lonig -lldap"
+```
+
 ---
 
 Typical depenceies:
@@ -205,7 +211,7 @@ Typical depenceies:
 - [ ] libnghttp2/1.55.1/lib/libnghttp2.14.dylib
 - [ ] libidn2/2.3.4_1/lib/libidn2.0.dylib
 - [ ] libtool/2.4.7/lib/libltdl.7.dylib
-- [ ] oniguruma/6.9.8/lib/libonig.5.dylib
+- [x] oniguruma/6.9.8/lib/libonig.5.dylib
 - [ ] rtmpdump/2.4+20151223_2/lib/librtmp.1.dylib
 - [ ] libavif/0.11.1/lib/libavif.15.0.1.dylib
 - [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
