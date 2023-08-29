@@ -170,14 +170,14 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>|*disabled*||
 |[GNU Multiple Precision](https://www.php.net/manual/en/book.gmp.php)|`--with-gmp`|*disabled*|<ul><li>- [x] </li></ul>|
 |[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Image Processing and GD](https://www.php.net/manual/en/book.image.php)|`--enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv`|*disabled*|<ul><li>- [x] </li></ul>|
 |[JavaScript Object Notation](https://www.php.net/manual/en/book.json.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
+|[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>|*disabled*||
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[OpenSSL](https://www.php.net/manual/en/book.openssl.php)|`--with-openssl`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Regular Expressions (Perl-Compatible)](https://www.php.net/manual/en/book.pcre.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
