@@ -126,6 +126,32 @@ export LIBS="-lz -liconv"
 #endif
 ```
 
+## Does it actually work?
+
+Rename the program as `php-fcgi-4d` and replace the one inside 4D.app.
+
+Test call:
+
+```4d
+var $returnValue : Text
+
+$success:=PHP Execute(""; "phpversion"; $returnValue)
+
+var $response : Text
+ARRAY TEXT($labels; 0)
+ARRAY TEXT($values; 0)
+
+PHP GET FULL RESPONSE($response; $labels; $values)
+```
+
+**Result**: `$success` is `False`. Activity Monitor shows multiple instances of `php-fcgi-4d`. `X-4DPHP-Error-php-interpreter` contains the message:
+
+```
+PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding() in _4D_Execute_PHP.php:131
+```
+
+
+
 ---
 
 Typical depenceies:
