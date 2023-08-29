@@ -165,6 +165,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[BCMath](https://www.php.net/manual/en/book.bc.php)|`--enable-bcmath`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Calendar](https://www.php.net/manual/en/book.calendar.php)|`--enable-calendar`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Character type checking](https://www.php.net/manual/en/book.ctype.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Client URL Library](https://www.php.net/manual/en/book.curl.php)|`--with-curl=DIR`|*disabled*|*disabled*|
 |[Date and Time](https://www.php.net/manual/en/book.datetime.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Document Object Model](https://www.php.net/manual/en/book.dom.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
