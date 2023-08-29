@@ -252,9 +252,6 @@ Add path to custom installations:
  --with-openssl=DIR
 ```
 
-
-
-
 **Error**: Undefined symbols: `libunistring` expects a non-plug version of `libiconv`. 
 
 **Solution**: Compile and use a hybrid version that contains both names (`_iconv` and `_libiconv`).
