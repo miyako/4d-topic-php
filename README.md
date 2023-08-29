@@ -167,20 +167,20 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 |[BCMath](https://www.php.net/manual/en/book.bc.php)|`--enable-bcmath`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Calendar](https://www.php.net/manual/en/book.calendar.php)|`--enable-calendar`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Character type checking](https://www.php.net/manual/en/book.ctype.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[Client URL Library](https://www.php.net/manual/en/book.curl.php)|`--with-curl=DIR`|*disabled*|*disabled*|
+|[Client URL Library](https://www.php.net/manual/en/book.curl.php)|`--with-curl=DIR`|*disabled*|<ul><li>- [x] </li></ul>|
 |[Date and Time](https://www.php.net/manual/en/book.datetime.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Document Object Model](https://www.php.net/manual/en/book.dom.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>|*disabled*||
+|[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[GNU Multiple Precision](https://www.php.net/manual/en/book.gmp.php)|`--with-gmp`|*disabled*|<ul><li>- [x] </li></ul>|
 |[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Image Processing and GD](https://www.php.net/manual/en/book.image.php)|`--enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv`|*disabled*|<ul><li>- [x] </li></ul>|
 |[JavaScript Object Notation](https://www.php.net/manual/en/book.json.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>|*disabled*||
+|[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[OpenSSL](https://www.php.net/manual/en/book.openssl.php)|`--with-openssl`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Regular Expressions (Perl-Compatible)](https://www.php.net/manual/en/book.pcre.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
@@ -208,10 +208,12 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 ```
 ./configure
  --with-tidy=DIR
+ --with-ldap=DIR
+ --with-curl=DIR
+ --with-openssl=DIR
  --with-zlib
  --with-gmp
  --with-zip
- --with-openssl
  --enable-static
  --enable-bcmath
  --enable-calendar
@@ -222,35 +224,7 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
  --enable-mbstring
 ```
 
-### Static Libraries
-
-```
-export LIBS="
- -lz
- -lsqlite3
- -liconv
- -lbz2
- -lzip
- -lzstd
- -lonig
- -llzma
- -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv
- -ltidy
- -lgmp
- -lcrypto -lssl"
-```
-
-## Build static PHP with embedded `libcurl`
-
-Add `--with-curl`.
-
-**Error**: `configure: error: There is something wrong. Please check config.log for more information.`
-
-**Solution (kind of)**: Edit *configure* to skip the hard testing of `curl_easy_perform`.
-
-**Error**: Undefined symbols.
-
-Just throw more libraries and see what sticks?
+### Static Libraries and Frameworks
 
 ```
 export LIBS="
@@ -280,7 +254,25 @@ export LIBS="
  -framework Kerberos"
 ```
 
-Also specify subdirectories for headers because some symbols are constants.
+## Build static PHP with embedded `libcurl`
+
+**Error**: `configure: error: There is something wrong. Please check config.log for more information.`
+
+**Solution**: Add path to custom installations:
+
+```
+./configure
+ --with-curl=DIR
+ --with-openssl=DIR
+```
+
+**Error**: Undefined symbols: `libunistring` expects a non-plug version of `libiconv`. 
+
+**Solution**: Compile and use a hybrid version that contains both names (`_iconv` and `_libiconv`).
+
+**Error**: Undefined symbols: `libbrotli` constants.
+
+**Solution**: Specify subdirectory paths to header files:
 
 ```
 export CFLAGS="
@@ -291,6 +283,11 @@ export CFLAGS="
 
 ## Build static PHP with embedded `libldap`
 
-**Error**: `configure: error: LDAP build check failed. Please check config.log for more information.`
+**Error**: `configure: error: Cannot find ldap.h`
 
-No workaround. Yet.
+**Solution**: Add path to custom installations:
+
+```
+./configure
+ --with-ldap=DIR
+```
