@@ -108,12 +108,12 @@ brew fetch --bottle-tag=x86_64_big_sur libiconv
 
 **Error**: `configure: error: Please reinstall the iconv library.`
 
-We could link to the homebrew header file and also add `-liconv` to `LDFLAGS`:
+We could link to the homebrew header file. Adding `-liconv` to `LDFLAGS` also seems to help:
 
 ```
 export CFLAGS="-I{path-to-user-header-dir}" 
 export LDFLAGS="-L{path-to-static-library-dir} -liconv"
-export LIBS="-lz -liconv"
+export LIBS="-lz  -lsqlite3 -liconv"
 ```
 
 …but this won't eliminate compiler errors.
@@ -224,10 +224,11 @@ The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) i
 ```
 export LIBS="
  -lz
+ -lsqlite3
+ -liconv
  -lbz2
  -lzip
  -lzstd
- -liconv
  -lonig
  -llzma
  -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv
