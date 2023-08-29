@@ -57,7 +57,7 @@ brew fetch --bottle-tag=arm64_big_sur zlib
 brew fetch --bottle-tag=x86_64_big_sur zlib
 ```
 
-Direct path to static library directory:
+Indicate static library location:
 
 ```
 export LDFLAGS="-L{path-to-static-library-dir}"
@@ -108,11 +108,13 @@ brew fetch --bottle-tag=x86_64_big_sur libiconv
 
 **Error**: `configure: error: Please reinstall the iconv library.`
 
-We could link to the homebrew header file. Adding `-liconv` to `LDFLAGS` also seems to help:
+Indicate static library location:
+
+We could indicate static library location. Adding `-liconv` to `LDFLAGS` also seems to help:
 
 ```
 export CFLAGS="-I{path-to-user-header-dir}" 
-export LDFLAGS="-L{path-to-static-library-dir} -liconv"
+export LDFLAGS="-L{path-to-static-library-dir}"
 export LIBS="-lz  -lsqlite3 -liconv"
 ```
 
