@@ -153,7 +153,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 **Solution**: Add `--enable-mbstring` to `configure`. In fact, enable all the extensions available in 4D.
 
 |Modules or Extension|Configure Option|4D v20|This Repository|
-|-|-|:-:|-|
+|-|-|:-:|:-:|
 |[BCMath](https://www.php.net/manual/en/book.bc.php)|`--enable-bcmath`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Calendar](https://www.php.net/manual/en/book.calendar.php)|`--enable-calendar`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Character type checking](https://www.php.net/manual/en/book.ctype.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
@@ -169,13 +169,22 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[SQLite3]([https://www.php.net/manual/en/book.spl.php](https://www.php.net/manual/en/book.sqlite3.php))|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Regular Expressions (Perl-Compatible)](https://www.php.net/manual/en/book.pcre.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[PHP Data Objects](https://www.php.net/manual/en/book.pdo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[SQLite Functions (PDO_SQLITE)](https://www.php.net/manual/en/ref.pdo-sqlite.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Phar](https://www.php.net/manual/en/book.phar.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[POSIX](https://www.php.net/manual/en/book.posix.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Random Number Generators and Functions Related to Randomness](https://www.php.net/manual/en/book.random.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Reflection](https://www.php.net/manual/en/book.reflection.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[Sessions](https://www.php.net/manual/en/features.sessions.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[SimpleXML](https://www.php.net/manual/en/book.simplexml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[SQLite3](https://www.php.net/manual/en/book.sqlite3.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Standard PHP Library (SPL)](https://www.php.net/manual/en/book.spl.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Tokenizer](https://www.php.net/manual/en/book.tokenizer.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[XML Parser](https://www.php.net/manual/en/book.xml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLReader](https://www.php.net/manual/en/book.xmlreader.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLWriter](https://www.php.net/manual/en/book.xmlwriter.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*||
+|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|<ul><li>- [x] </li></ul>|
 |[Zlib Compression](https://www.php.net/manual/en/book.zlib.php)|`--with-zlib`|*disabled*|<ul><li>- [x] </li></ul>|
 
 ### Static Libraries
