@@ -108,17 +108,22 @@ brew fetch --bottle-tag=x86_64_big_sur libiconv
 
 **Error**: `configure: error: Please reinstall the iconv library.`
 
-We could add `-liconv` to `LDFLAGS`
+We could link to the homebrew header file and also add `-liconv` to `LDFLAGS`:
 
 ```
+export CFLAGS="-I{path-to-user-header-dir}" 
 export LDFLAGS="-L{path-to-static-library-dir} -liconv"
 export LIBS="-lz -liconv"
 ```
 
-…but this won't eliminate compiler errors, because we are using `libiconv` implementation.
+…but this won't eliminate compiler errors.
 
-```
-export CFLAGS="-I{path-to-user-header-dir}"
+**Solution**: Remove `#undef` *ext/iconv/iconv.c*
+
+```c
+#ifdef HAVE_LIBICONV
+//#undef iconv
+#endif
 ```
 
 ---
