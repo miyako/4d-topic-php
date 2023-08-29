@@ -152,6 +152,12 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 
 **Solution**: Add `--enable-mbstring` to `configure`. 
 
+## Build static PHP with embedded `libzip`
+
+The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) is dynamic-only.
+
+**Solution**: Build from [source](https://github.com/nih-at/libzip). Uncheck `BUILD_SHARED_LIBS` in CMake.
+
 ## Build static PHP with modules and extensions
 
 |Modules or Extension|Configure Option|4D v20|This Repository|
@@ -164,7 +170,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[Exchangeable image information](https://www.php.net/manual/en/book.exif.php)|`--enable-exif`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[File Information](https://www.php.net/manual/en/book.fileinfo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Data Filtering](https://www.php.net/manual/en/book.filter.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
-|[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>||
+|[FTP](https://www.php.net/manual/en/book.ftp.php)|`--enable-ftp`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[GNU Multiple Precision](https://www.php.net/manual/en/book.gmp.php)|`--with-gmp`|*disabled*|<ul><li>- [x] </li></ul>|
 |[HASH Message Digest Framework](https://www.php.net/manual/en/book.hash.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[iconv](https://www.php.net/manual/en/book.iconv.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
@@ -173,6 +179,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[libxml](https://www.php.net/manual/en/book.libxml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[Lightweight Directory Access Protocol](https://www.php.net/manual/en/book.ldap.php)|`--with-ldap`|<ul><li>- [x] </li></ul>||
 |[Multibyte String](https://www.php.net/manual/en/book.mbstring.php)|`--enable-mbstring`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
+|[OpenSSL](https://www.php.net/manual/en/book.openssl.php)|`--with-openssl`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Regular Expressions (Perl-Compatible)](https://www.php.net/manual/en/book.pcre.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[PHP Data Objects](https://www.php.net/manual/en/book.pdo.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[SQLite Functions (PDO_SQLITE)](https://www.php.net/manual/en/ref.pdo-sqlite.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
@@ -182,6 +189,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[Reflection](https://www.php.net/manual/en/book.reflection.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Sessions](https://www.php.net/manual/en/features.sessions.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[SimpleXML](https://www.php.net/manual/en/book.simplexml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
+|[Sockets](https://www.php.net/manual/en/book.sockets.php)|`--enable-sockets`|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[SQLite3](https://www.php.net/manual/en/book.sqlite3.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Standard PHP Library (SPL)](https://www.php.net/manual/en/book.spl.php)|(default)|<ul><li>- [x] </li></ul>|<ul><li>- [x] </li></ul>|
 |[Tidy](https://www.php.net/manual/en/book.tidy.php)|`--with-tidy=DIR`|*disabled*|<ul><li>- [x] </li></ul>|
@@ -189,7 +197,7 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 |[XML Parser](https://www.php.net/manual/en/book.xml.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLReader](https://www.php.net/manual/en/book.xmlreader.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
 |[XMLWriter](https://www.php.net/manual/en/book.xmlwriter.php)|(default)|*disabled*|<ul><li>- [x] </li></ul>|
-|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|*disabled*
+|[Zip](https://www.php.net/manual/en/book.zip.php)|`--with-zip`|*disabled*|<ul><li>- [x] </li></ul>|
 |[Zlib Compression](https://www.php.net/manual/en/book.zlib.php)|`--with-zlib`|*disabled*|<ul><li>- [x] </li></ul>|
 
 ### Configure Options
@@ -199,78 +207,88 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
  --with-tidy=DIR
  --with-zlib
  --with-gmp
+ --with-zip
+ --with-openssl
  --enable-static
  --enable-bcmath
  --enable-calendar
  --enable-exif
+ --enable-ftp
  --enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv
+ --enable-sockets
  --enable-mbstring
 ```
 
 ### Static Libraries
 
 ```
-export LIBS="-lz -lbz2 -liconv -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16-lsharpyuv -ltidy -lgmp"
+export LIBS="
+ -lz
+ -lbz2
+ -lzip
+ -lzstd
+ -liconv
+ -lonig
+ -llzma
+ -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv
+ -ltidy
+ -lgmp
+ -lcrypto -lssl"
 ```
 
 ---
 
 Typical depenceies:
 
-- [ ] aspell/0.60.8/lib/libpspell.15.dylib
 - [x] libpq-15.4
-- [ ] gettext/0.21.1/lib/libintl.8.dylib
 - [x] tidy-html5-5.8.0
-- [ ] aspell/0.60.8/lib/libaspell.15.dylib
-- [ ] krb5/1.21.2/lib/libcom_err.3.0.dylib
-- [ ] krb5/1.21.2/lib/libk5crypto.3.1.dylib
-- [ ] krb5/1.21.2/lib/libkrb5support.1.1.dylib
-- [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
-- [ ] freetds/1.3.20/lib/libsybdb.5.dylib
 - [x] openldap-2.6.6
 - [x] openldap-2.6.6-liblber
-- [ ] krb5/1.21.2/lib/libgssapi_krb5.2.2.dylib
-- [ ] argon2/20190702_1/lib/libargon2.1.dylib
 - [x] gmp-6.2.1_1
 - [x] libzip-1.10.1
 - [x] gd-2.3.3_5
-- [ ] openssl@3/3.1.2/lib/libssl.3.dylib
+- [x] openssl@3/3.1.2/lib/libssl.3.dylib
 - [ ] pcre2/10.42/lib/libpcre2-8.0.dylib
 - [ ] curl/8.2.1/lib/libcurl.4.dylib
 - [ ] unixodbc/2.3.12/lib/libodbc.2.dylib
 - [x] sqlite-3.43.0
+- [x] openssl@3-3.1.2
+- [x] oniguruma-6.9.8
+- [x] libpng-1.6.40
+- [x] xz-5.4.4
+- [x] libavif-0.11.1
+- [x] zstd-1.5.5
+- [x] jpeg-turbo-3.0.0
+- [x] libtiff/4.5.1/lib/libtiff.6.dylib
+- [x] webp-1.3.1-libwebp
+- [x] webp-1.3.1-libsharpyuv
+- [x] jpeg-xl-0.8.2
+- [x] libvmaf-2.3.1
+- [ ] aom/3.6.1/lib/libaom.3.6.1.dylib
+- [ ] little-cms2/2.15/lib/liblcms2.2.dylib
+- [ ] libunistring/1.1/lib/libunistring.5.dylib
+- [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
+- [ ] freetype/2.13.1/lib/libfreetype.6.dylib
+- [ ] rtmpdump/2.4+20151223_2/lib/librtmp.1.dylib
+- [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
+- [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
+- [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
+- [ ] icu4c/73.2/lib/libicuio.73.2.dylib
+- [ ] icu4c/73.2/lib/libicudata.73.2.dylib
+- [ ] krb5/1.21.2/lib/libcom_err.3.0.dylib
+- [ ] krb5/1.21.2/lib/libk5crypto.3.1.dylib
+- [ ] krb5/1.21.2/lib/libkrb5support.1.1.dylib
+- [ ] krb5/1.21.2/lib/libkrb5.3.3.dylib
+- [ ] libnghttp2/1.55.1/lib/libnghttp2.14.dylib
+- [ ] libidn2/2.3.4_1/lib/libidn2.0.dylib
+- [ ] libtool/2.4.7/lib/libltdl.7.dylib
+- [ ] krb5/1.21.2/lib/libgssapi_krb5.2.2.dylib
+- [ ] freetds/1.3.20/lib/libsybdb.5.dylib
 - [ ] libsodium/1.0.18_1/lib/libsodium.23.dylib
 - [ ] brotli/1.0.9/lib/libbrotlidec.1.0.9.dylib
 - [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
 - [ ] brotli/1.0.9/lib/libbrotlicommon.1.0.9.dylib
 - [ ] highway/1.0.6/lib/libhwy.1.0.6.dylib
-- [ ] openssl@3/3.1.2/lib/libcrypto.3.dylib
-- [ ] libnghttp2/1.55.1/lib/libnghttp2.14.dylib
-- [ ] libidn2/2.3.4_1/lib/libidn2.0.dylib
-- [ ] libtool/2.4.7/lib/libltdl.7.dylib
-- [x] oniguruma-6.9.8
-- [ ] rtmpdump/2.4+20151223_2/lib/librtmp.1.dylib
-- [x] libavif-0.11.1
-- [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
-- [x] libpng-1.6.40
-- [x] xz-5.4.4
-- [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
-- [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
-- [ ] icu4c/73.2/lib/libicuio.73.2.dylib
-- [ ] icu4c/73.2/lib/libicudata.73.2.dylib
-- [x] zstd-1.5.5
-- [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
-- [ ] freetype/2.13.1/lib/libfreetype.6.dylib
-- [x] jpeg-turbo-3.0.0
-- [ ] libunistring/1.1/lib/libunistring.5.dylib
-- [x] libtiff/4.5.1/lib/libtiff.6.dylib
-- [x] webp-1.3.1-libwebp
-- [x] webp-1.3.1-libsharpyuv
-- [ ] little-cms2/2.15/lib/liblcms2.2.dylib
-- [x] jpeg-xl-0.8.2
-- [ ] aom/3.6.1/lib/libaom.3.6.1.dylib
-- [x] libvmaf-2.3.1
-
-```
---without-iconv
-```
+- [ ] argon2/20190702_1/lib/libargon2.1.dylib
+- [ ] aspell/0.60.8/lib/libpspell.15.dylib
+- [ ] gettext/0.21.1/lib/libintl.8.dylib
