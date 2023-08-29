@@ -150,7 +150,7 @@ PHP GET FULL RESPONSE($response; $labels; $values)
 PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding() in _4D_Execute_PHP.php:131
 ```
 
-
+**Solution**: Add `--enable-mbstring` to `configure`.
 
 ---
 
