@@ -152,6 +152,12 @@ PHP Fatal error:  Uncaught Error: Call to undefined function mb_convert_encoding
 
 **Solution**: Add `--enable-mbstring` to `configure`. 
 
+## Build static PHP with embedded `libzip`
+
+The homebrew distribution of [libzip](https://formulae.brew.sh/formula/libzip) is dynamic-only.
+
+**Solution**: Build from [source](https://github.com/nih-at/libzip). Uncheck `BUILD_SHARED_LIBS` in CMake.
+
 ## Build static PHP with modules and extensions
 
 |Modules or Extension|Configure Option|4D v20|This Repository|
