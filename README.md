@@ -239,6 +239,7 @@ Typical depenceies:
 - [ ] libsodium/1.0.18_1/lib/libsodium.23.dylib
 - [ ] brotli/1.0.9/lib/libbrotlidec.1.0.9.dylib
 - [ ] brotli/1.0.9/lib/libbrotlienc.1.0.9.dylib
+- [ ] brotli/1.0.9/lib/libbrotlicommon.1.0.9.dylib
 - [ ] highway/1.0.6/lib/libhwy.1.0.6.dylib
 - [ ] openssl@3/3.1.2/lib/libcrypto.3.dylib
 - [ ] libnghttp2/1.55.1/lib/libnghttp2.14.dylib
@@ -248,7 +249,6 @@ Typical depenceies:
 - [ ] rtmpdump/2.4+20151223_2/lib/librtmp.1.dylib
 - [x] libavif-0.11.1
 - [ ] libssh2/1.11.0_1/lib/libssh2.1.dylib
-- [ ] brotli/1.0.9/lib/libbrotlicommon.1.0.9.dylib
 - [x] libpng-1.6.40
 - [x] xz-5.4.4
 - [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
