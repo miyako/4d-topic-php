@@ -117,13 +117,9 @@ export LIBS="-lz -liconv"
 
 …but this won't eliminate compiler errors, because we are using `libiconv` implementation.
 
-We could add to *ext/iconv/iconv.c*
-
-```c
-#define LIBICONV_PLUG 1
 ```
-
-…but this won't eliminate linker errors.
+export CFLAGS="-I{path-to-user-header-dir}"
+```
 
 ---
 
