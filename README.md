@@ -44,7 +44,7 @@ For comparision, the v20 `php-fcgi-4d` file looks like this:
 
 According to the [PHP modules support](https://doc.4d.com/4Dv20/4D/20/PHP-modules-support.300-6238471.en.html) documentation, `SQLite3` is enabled so the library must be statically linked. `Zip`, `Zlib`, `Iconv`, as well as XML-releated featured that depend on `Zlib` are all disabled.
 
-To create universal binary, restart Terminal using Rosetta, repeat, then `lipo -create`.
+To create universal binary, restart Terminal using Rosetta, `make distclean`, repeat, then `lipo -create`.
 
 ## Build static PHP with embedded `libz` and `libsqlite3`
 
