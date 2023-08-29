@@ -219,7 +219,6 @@ Typical depenceies:
 - [x] tidy-html5-5.8.0
 - [ ] aspell/0.60.8/lib/libaspell.15.dylib
 - [ ] krb5/1.21.2/lib/libcom_err.3.0.dylib
-- [ ] icu4c/73.2/lib/libicuio.73.2.dylib
 - [ ] krb5/1.21.2/lib/libk5crypto.3.1.dylib
 - [ ] freetds/1.3.20/lib/libsybdb.5.dylib
 - [x] openldap-2.6.6
@@ -253,6 +252,7 @@ Typical depenceies:
 - [x] xz-5.4.4
 - [ ] icu4c/73.2/lib/libicui18n.73.2.dylib
 - [ ] icu4c/73.2/lib/libicuuc.73.2.dylib
+- [ ] icu4c/73.2/lib/libicuio.73.2.dylib
 - [x] zstd-1.5.5
 - [ ] fontconfig/2.14.2/lib/libfontconfig.1.dylib
 - [ ] freetype/2.13.1/lib/libfreetype.6.dylib
