@@ -291,3 +291,9 @@ export CFLAGS="
 ./configure
  --with-ldap=DIR
 ```
+
+## Build static PHP with [interactive shell](https://www.php.net/manual/en/features.commandline.interactive.php) support
+
+```
+--with-readline=DIR
+```
