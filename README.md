@@ -294,6 +294,10 @@ export CFLAGS="
 
 ## Build static PHP with [interactive shell](https://www.php.net/manual/en/features.commandline.interactive.php) support
 
+**Error**: `configure: error: Please reinstall readline - I cannot find readline.h`
+
+**Solution**: Add path to custom installations:
+
 ```
 --with-readline=DIR
 ```
