@@ -1,10 +1,13 @@
-./configure --enable-static --prefix=/Users/miyako/Desktop/php --with-zlib --enable-bcmath --enable-calendar --enable-exif --enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv --enable-mbstring --with-tidy=/Users/miyako/Documents/GitHub/4d-topic-php/ --with-gmp --with-zip --enable-sockets --with-openssl=/Users/miyako/Documents/GitHub/4d-topic-php/ --enable-ftp --with-curl=/Users/miyako/Documents/GitHub/4d-topic-php/ --with-ldap=/Users/miyako/Documents/GitHub/4d-topic-php/
-
-
 export LDFLAGS="-L/Users/miyako/Documents/GitHub/4d-topic-php/lib -liconv"
-export LIBS="-lz -lsqlite3 -liconv -lbz2 -lzip -lzstd -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv -ltidy  -lgmp -lcrypto -lssl -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber -lbrotlidec -lbrotlienc -lbrotlicommon -framework LDAP -framework Kerberos -framework GSS -framework SystemConfiguration -framework Cocoa -framework Security -lsasl2 -lunistring -lrtmp -lldap"
+export LIBS="-lz -lsqlite3 -liconv -lbz2 -lzip -lzstd -lonig -llzma -lgd -lwebp -lavif -ltiff -lpng16 -lsharpyuv -ltidy  -lgmp -lcrypto -lssl -lcurl -lnghttp2 -lidn2 -lssh2 -lldap -llber -lbrotlidec -lbrotlienc -lbrotlicommon -lreadline -framework LDAP -framework Kerberos -framework GSS -framework SystemConfiguration -framework Cocoa -framework Security -lsasl2 -lunistring -lrtmp -lldap"
 export CFLAGS="-I/Users/miyako/Documents/GitHub/4d-topic-php/include -I/Users/miyako/Documents/GitHub/4d-topic-php/include/brotli -I/Users/miyako/Documents/GitHub/4d-topic-php/include/curl"
 
+./configure --enable-static --prefix=/Users/miyako/Desktop/php --with-zlib --enable-bcmath --enable-calendar --enable-exif --enable-gd --with-avif --with-webp --with-jpeg --enable-gd-jis-conv --enable-mbstring --with-tidy=/Users/miyako/Documents/GitHub/4d-topic-php/ --with-gmp --with-zip --enable-sockets --with-openssl=/Users/miyako/Documents/GitHub/4d-topic-php/ --enable-ftp --with-curl=/Users/miyako/Documents/GitHub/4d-topic-php/ --with-ldap=/Users/miyako/Documents/GitHub/4d-topic-php/ --with-readline=/Users/miyako/Documents/GitHub/4d-topic-php/
 
 brew fetch --bottle-tag=arm64_big_sur libunistring
 brew fetch --bottle-tag=x86_64_big_sur libunistring
+
+brew fetch --bottle-tag=arm64_monterey readline
+brew fetch --bottle-tag=x86_64_monterey readline
+
+brew install re2c
